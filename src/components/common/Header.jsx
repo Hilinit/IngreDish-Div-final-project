@@ -3,8 +3,8 @@ import { useAuth } from '../../context/AuthContext';
 
 function Header() {
   const { user, isLoggedIn } = useAuth();
-  const avatarSrc = (!user?.isGuest && isLoggedIn && user?.avatar)  ? user.avatar  : "https://i.pinimg.com/736x/b8/d8/c5/b8d8c54c03e3d1a3cc050578e7d46389.jpg"
-  const displayName = (!user?.isGuest && isLoggedIn && user?.name) ? user.name : "Profil";
+  const avatarSrc = (!user?.isGuest && isLoggedIn && user?.avatar)  ? user.avatar  : "https://i.pinimg.com/736x/4d/68/ec/4d68eca5e68d4141861e00aa728a73fc.jpg"
+  const displayName = (!user?.isGuest && isLoggedIn && user?.name) ? user.name : "Profile";
 
   const getNavLinkClass = ({ isActive }) => 
     `mt-2 transition ${ isActive ? "border-[#C2410C] text-[#C2410C] dark:text-orange-400 dark:border-orange-400 font-bold" : " hover:border-[#C2410C] hover:text-[#C2410C] text-gray-700 dark:text-white/70" }`
