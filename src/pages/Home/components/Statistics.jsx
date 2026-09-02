@@ -12,7 +12,7 @@ const Statistics = () => {
   ];
 
   return (
-    <div className="w-full lg:w-auto lg:absolute lg:bottom-6 lg:left-6 xl:left-20 z-20">
+    <div className="w-full lg:w-auto lg:absolute lg:bottom-6 lg:left-4 xl:left-20 z-20">
       <div className="bg-white dark:bg-neutral-900 rounded-2xl shadow-xl border border-orange-950/10 dark:border-neutral-800 px-4 sm:px-6 py-4 md:py-5 transition-colors w-full lg:w-auto">
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 items-center justify-items-center lg:justify-items-start">
           {stats.map((item) => (

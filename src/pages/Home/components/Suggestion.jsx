@@ -13,7 +13,6 @@ const Suggestion = () => {
       setFeatured(recipes[random])
     }
   }, [recipes]) 
-
   if (loading || !featured) { return null }
 
   return (
