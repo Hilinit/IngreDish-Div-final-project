@@ -11,7 +11,7 @@ const Category = ({ data }) => {
           <div key={cat.id} onClick={() => navigate(`/categorydetail/${cat.id}`)} className="group relative h-56 cursor-pointer overflow-hidden rounded-xl shadow-md dark:shadow-neutral-900 border border-transparent dark:border-neutral-800 transition-all">
             <div className="absolute inset-0 bg-cover bg-center blur-[2px] transition-all duration-500 group-hover:scale-105 group-hover:blur-0" style={{ backgroundImage: `url(${cat.image})` }}  />
             <div className="absolute inset-0 bg-black/40 dark:bg-black/50 transition-colors duration-500 group-hover:bg-black/20 dark:group-hover:bg-black/30" />
-            <h3 className="relative z-10 flex h-full items-center justify-center text-center text-white text-2xl font-bold px-4 drop-shadow-md transition-colors">
+            <h3 className="relative z-10 flex h-full items-center justify-center text-center text-white text-2xl font-bold px-4 py-2 bg-black/30 backdrop-blur-[1px] rounded-xl transition-all duration-500 ease-in-out  hover:text-4xl">
               {cat.name}
             </h3>
           </div>
