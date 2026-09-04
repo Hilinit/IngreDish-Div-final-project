@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
 
 
 html { scroll-behavior: smooth }
@@ -30,7 +30,6 @@ p,button,NavLink,input {font-family: "Inter", sans-serif}
     transition-duration: 0.001ms !important;
   }
 }
-
 html, body {
   overflow-x: hidden;
   max-width: 100vw;

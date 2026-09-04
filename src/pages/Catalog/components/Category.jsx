@@ -5,7 +5,7 @@ const Category = ({ data }) => {
   if (!data || data.length === 0) { return <p className="text-center text-gray-500 dark:text-gray-400 my-36">Heç bir kateqoriya tapılmadı.</p> }
 
   return (
-    <div className="container mx-auto pb-8 p-5">
+    <div className="container mx-auto pb-8 pt-5">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {data.map((cat) => (
           <div key={cat.id} onClick={() => navigate(`/categorydetail/${cat.id}`)} className="group relative h-56 cursor-pointer overflow-hidden rounded-xl shadow-md dark:shadow-neutral-900 border border-transparent dark:border-neutral-800 transition-all">
