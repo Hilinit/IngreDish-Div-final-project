@@ -1,5 +1,5 @@
 import { FaUser, FaEnvelope, FaLock, FaUserSecret, FaArrowRight } from "react-icons/fa";
-import { useAuthForm } from "../../hooks/useAuthForm";
+import { useAuthForm } from "./hooks/useAuthForm";
 
 const Auth = () => {
   const { activeTab, formData, errors, handleTabSwitch, handleChange, handleSubmit, handleGuestLogin } = useAuthForm();
