@@ -13,8 +13,8 @@ const ForYouCard = ({ item }) => {
           <img loading="lazy" src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
         </Link>
         <button onClick={() => dispatch({ type: "TOGGLE_FAVORITE", payload: item })} className="absolute top-3 right-3 p-2 bg-white/80 dark:bg-neutral-800/80 backdrop-blur-md rounded-full shadow-sm hover:bg-white dark:hover:bg-neutral-800 transition z-10 cursor-pointer" >
-          {isFav ? ( <FaHeart className="text-red-500 text-sm" /> ) : ( 
-            <FaRegHeart className="text-slate-600 dark:text-slate-300 hover:text-red-500 text-sm transition" /> 
+          {isFav ? ( <FaHeart className="text-red-500 text-lg" /> ) : ( 
+            <FaRegHeart className="text-slate-600 dark:text-slate-300 hover:text-red-500 text-lg transition" /> 
           )}
         </button>
 

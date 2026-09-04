@@ -31,7 +31,7 @@ function ForYou() {
 
       <section className="space-y-6">
         <div className="space-y-1">
-          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+          <h2 className="text-2xl sm:text-3xl text-slate-700  dark:text-white tracking-tight">
             Sizin üçün seçilmiş reseptlər
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
