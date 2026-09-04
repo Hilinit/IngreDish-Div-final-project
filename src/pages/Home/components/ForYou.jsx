@@ -2,9 +2,19 @@ import Carusel from "./Carusel";
 import { Loading } from "../../../components/ui/LoadingError";
 import { useAppData } from "../../../hooks/useAppData";
 import ForYouCard from "./ForYouCard";
+import { useEffect, useState } from "react";
 
 function ForYou() {
   const { recipes, categories, loading } = useAppData();
+  const [randomRecipes, setRandomRecipes] = useState([]);
+
+  useEffect(() => {
+    if (recipes && recipes.length > 0) {
+      const mixed = [...recipes].sort(() => 0.5 - Math.random());
+      setRandomRecipes(mixed.slice(0, 8));
+    }
+  }, [recipes]);
+
   if (loading) { return <Loading />; }
 
   return (
@@ -29,7 +39,7 @@ function ForYou() {
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-          {(recipes || []).slice(0, 8).map((item) => (
+          {randomRecipes.map((item) => (
             <ForYouCard key={item.id} item={item} />
           ))}
         </div>
