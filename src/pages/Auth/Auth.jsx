@@ -32,7 +32,7 @@ const Auth = () => {
             <div>
               <label className="block text-xs font-semibold text-slate-700 dark:text-gray-300 mb-1">Ad və Soyad</label>
               <div className="relative">
-                <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Xəyalə İsmayıllı" className={`w-full bg-slate-50 dark:bg-neutral-800 text-slate-900 dark:text-white border rounded-xl px-4 py-3 pl-10 text-xs focus:outline-none transition 
+                <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Ad Soyad" className={`w-full bg-slate-50 dark:bg-neutral-800 text-slate-900 dark:text-white border rounded-xl px-4 py-3 pl-10 text-xs focus:outline-none transition 
                   ${ errors.name ? "border-red-500" : "border-slate-200 dark:border-neutral-700 focus:border-[#C2410C] dark:focus:border-orange-500"}`} />
                 <FaUser className="absolute left-3.5 top-3.5 text-slate-400 dark:text-gray-500 text-xs" />
               </div>
