@@ -35,9 +35,8 @@ export const FavoritesProvider = ({ children }) => {
         dispatch({ type: "SET_FAVORITES", payload: hydratedFavorites });
       } 
       else { dispatch({ type: "CLEAR_FAVORITES" }) }
-    } else {
-      dispatch({ type: "CLEAR_FAVORITES" });
-    }
+    } 
+    else { dispatch({ type: "CLEAR_FAVORITES" }) }
     setIsInitialized(true);
   }, [user, recipes]);
 

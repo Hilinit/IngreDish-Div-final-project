@@ -10,9 +10,7 @@ const api = axios.create({
 });
 
 export const uploadImageToCloudinary = async (base64String) => {
-  if (!base64String || typeof base64String !== "string" || !base64String.startsWith("data:image")) { 
-    return base64String; 
-  }
+  if (!base64String || typeof base64String !== "string" || !base64String.startsWith("data:image")) { return base64String }
 
   try {
     const formData = new FormData();

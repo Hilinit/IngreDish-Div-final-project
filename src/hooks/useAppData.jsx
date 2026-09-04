@@ -78,7 +78,3 @@ export function useAppData() {
 
   return { recipes, blogs, formatRecipes, formatBlogs, ingredients, categories, loading, error }
 }
-
-
-
-
