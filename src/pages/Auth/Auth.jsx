@@ -1,8 +1,10 @@
-import { FaUser, FaEnvelope, FaLock, FaUserSecret, FaArrowRight } from "react-icons/fa";
+import { useState } from "react";
+import { FaUser, FaEnvelope, FaLock, FaUserSecret, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useAuthForm } from "./hooks/useAuthForm";
 
 const Auth = () => {
-  const { activeTab, formData, errors, handleTabSwitch, handleChange, handleSubmit, handleGuestLogin } = useAuthForm();
+  const { activeTab, formData, errors, handleTabSwitch, handleChange, handleSubmit, handleGuestLogin } = useAuthForm()
+  const [showPassword, setShowPassword] = useState(false)
 
   return (
     <div className="relative min-h-screen flex items-center justify-center px-4 py-12 pt-20 overflow-hidden">
@@ -53,15 +55,19 @@ const Auth = () => {
           <div>
             <label className="block text-xs font-semibold text-slate-700 dark:text-gray-300 mb-1">Şifrə</label>
             <div className="relative">
-              <input type="password" name="password" value={formData.password} onChange={handleChange} placeholder="••••••••" className={`w-full bg-slate-50 dark:bg-neutral-800 text-slate-900 dark:text-white border rounded-xl px-4 py-3 pl-10 text-xs focus:outline-none transition 
-                ${ errors.password ? "border-red-500" : "border-slate-200 dark:border-neutral-700 focus:border-[#C2410C] dark:focus:border-orange-500"}`} />
+              <input type={showPassword ? "text" : "password"} name="password" value={formData.password} onChange={handleChange} placeholder="••••••••" className={`w-full bg-slate-50 dark:bg-neutral-800 text-slate-900 dark:text-white border rounded-xl px-4 py-3 pl-10 pr-10 text-xs focus:outline-none transition 
+                ${ errors.password ? "border-red-500" : "border-slate-200 dark:border-neutral-700 focus:border-[#C2410C] dark:focus:border-orange-500"}`}  />
               <FaLock className="absolute left-3.5 top-3.5 text-slate-400 dark:text-gray-500 text-xs" />
+          
+              <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3.5 top-3.5 text-slate-400 dark:text-gray-500 hover:text-slate-600 dark:hover:text-gray-300 cursor-pointer" >
+                {showPassword ? <FaEyeSlash className="text-md" /> : <FaEye className="text-md" />}
+              </button>
             </div>
             {errors.password && <p className="text-red-500 text-[11px] mt-1 font-medium pl-1">{errors.password}</p>}
           </div>
 
           <button type="submit" className="w-full bg-[#C2410C] hover:bg-[#9A3412] dark:bg-orange-600 dark:hover:bg-orange-500 text-white font-bold py-3 px-4 rounded-xl text-xs transition shadow-sm flex items-center justify-center gap-2 cursor-pointer mt-2" >
-            {activeTab === "login" ? "Daxil Ol" : "Qeydiyyatı Tamamla"} <FaArrowRight className="text-xs" />
+            {activeTab === "login" ? "Daxil Ol" : "Qeydiyyatı Tamamla"}
           </button>
         </form>
 
@@ -75,7 +81,7 @@ const Auth = () => {
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Auth
+export default Auth;
