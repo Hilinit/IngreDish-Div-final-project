@@ -6,9 +6,7 @@ export function useAuthLogic() {
   const [isLoggedIn, setIsLoggedIn] = useState(() => localStorage.getItem("isLoggedIn") === "true");
   const [viewsCount, setViewsCount] = useState(() => Number(localStorage.getItem("viewsCount")) || 0);
 
-  useEffect(() => {
-    user ? localStorage.setItem("app_user", JSON.stringify(user)) : localStorage.removeItem("app_user");
-  }, [user]);
+  useEffect(() => { user ? localStorage.setItem("app_user", JSON.stringify(user)) : localStorage.removeItem("app_user") }, [user]);
 
   useEffect(() => { localStorage.setItem("isLoggedIn", isLoggedIn); }, [isLoggedIn]);
 
@@ -24,7 +22,7 @@ export function useAuthLogic() {
       });
   }, []);
 
-  // Şəkilləri Cloudinary-ə yükləmək üçün ortaq funksiya
+ 
   const handleImageUpload = async (data) => {
     let updated = { ...data };
     if (updated.avatar?.startsWith("data:image")) updated.avatar = await uploadImageToCloudinary(updated.avatar);

@@ -41,7 +41,6 @@ export function useAppData() {
   const [ingredients, setIngredients] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -62,12 +61,9 @@ export function useAppData() {
         setBlogs(blogData.blogs || blogData);
         setIngredients(ingredientsData.ingredients || ingredientsData);
         setCategories(categoriesData.categories || categoriesData);
-      } catch (err) {
-        console.error("Xəta baş verdi:", err);
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
+      } 
+      catch (err) { console.error("Xəta baş verdi:", err) } 
+      finally { setLoading(false) }
     }
 
     fetchData();
@@ -76,5 +72,5 @@ export function useAppData() {
   const formatRecipes = transformToDetailLayout(recipes, "recipe");
   const formatBlogs = transformToDetailLayout(blogs, "blog");
 
-  return { recipes, blogs, formatRecipes, formatBlogs, ingredients, categories, loading, error }
+  return { recipes, blogs, formatRecipes, formatBlogs, ingredients, categories, loading }
 }

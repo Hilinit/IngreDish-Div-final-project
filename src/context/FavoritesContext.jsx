@@ -22,26 +22,26 @@ export const FavoritesProvider = ({ children }) => {
   const { recipes } = useAppData();
   const { user, updateUser } = useAuth();
   const [favorites, dispatch] = useReducer(favoritesReducer, initialState);
-  const [isInitialized, setIsInitialized] = useState(false);
+  const [isReady, setisReady] = useState(false);
 
   useEffect(() => {
     if (!recipes || recipes.length === 0) return;
 
     if (user && !user.isGuest) {
       if (user.favoriteIds && user.favoriteIds.length > 0) {
-        const hydratedFavorites = recipes.filter((recipe) => 
+        const userFavorites = recipes.filter((recipe) => 
           user.favoriteIds.some((favId) => String(favId) === String(recipe.id))
         );
-        dispatch({ type: "SET_FAVORITES", payload: hydratedFavorites });
+        dispatch({ type: "SET_FAVORITES", payload: userFavorites });
       } 
       else { dispatch({ type: "CLEAR_FAVORITES" }) }
     } 
     else { dispatch({ type: "CLEAR_FAVORITES" }) }
-    setIsInitialized(true);
+    setisReady(true);
   }, [user, recipes]);
 
   useEffect(() => {
-    if (!isInitialized) return;
+    if (!isReady) return;
     localStorage.setItem("favorite_recipes", JSON.stringify(favorites));
 
     if (user && !user.isGuest) {

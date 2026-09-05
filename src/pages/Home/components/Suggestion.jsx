@@ -25,7 +25,7 @@ const Suggestion = () => {
             <p className="text-xs sm:text-sm lg:text-base text-[#C2410C] dark:text-orange-400 font-extrabold uppercase tracking-wider mb-1.5 sm:mb-2 lg:mb-3">
               Bu günün resepti
             </p>
-            <h3 className="text-sm sm:text-base lg:text-lg font-bold text-gray-800 dark:text-white leading-snug line-clamp-1"> 
+            <h3 className="text-sm sm:text-base lg:text-lg font-bold text-gray-800 dark:text-white leading-snug line-clamp-2"> 
               {featured.title} 
             </h3>
             <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-1 leading-relaxed line-clamp-2 sm:line-clamp-3">

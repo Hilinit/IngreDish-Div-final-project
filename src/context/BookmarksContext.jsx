@@ -20,7 +20,7 @@ const BookmarksContext = createContext();
 export const BookmarksProvider = ({ children }) => {
   const { user, updateUser } = useAuth();
   const [bookmarks, dispatch] = useReducer(bookmarksReducer, initialState);
-  const [isInitialized, setIsInitialized] = useState(false);
+  const [isReady, setisReady] = useState(false);
   const { blogs } = useAppData();
 
   useEffect(() => {
@@ -28,18 +28,18 @@ export const BookmarksProvider = ({ children }) => {
 
     if (user && !user.isGuest) {
       if (user.bookmarkIds && user.bookmarkIds.length > 0) { 
-        const hydratedBookmarks = blogs.filter((blog) => 
+        const userBookmarks = blogs.filter((blog) => 
           user.bookmarkIds.some((bookId) => String(bookId) === String(blog.id)));
-        dispatch({ type: "SET_BOOKMARKS", payload: hydratedBookmarks });
+        dispatch({ type: "SET_BOOKMARKS", payload: userBookmarks });
       } 
       else { dispatch({ type: "CLEAR_BOOKMARKS" }) }
     } 
     else { dispatch({ type: "CLEAR_BOOKMARKS" }) }
-    setIsInitialized(true);
+    setisReady(true);
   }, [user, blogs]);
 
   useEffect(() => {
-    if (!isInitialized) return;
+    if (!isReady) return;
     localStorage.setItem("bookmarked_blogs", JSON.stringify(bookmarks));
 
     if (user && !user.isGuest) {
