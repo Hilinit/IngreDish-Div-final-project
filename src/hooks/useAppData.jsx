@@ -62,7 +62,7 @@ export function useAppData() {
         setIngredients(ingredientsData.ingredients || ingredientsData);
         setCategories(categoriesData.categories || categoriesData);
       } 
-      catch (err) { console.error("Xəta baş verdi:", err) } 
+      catch (err) { console.log("Xəta baş verdi:", err) } 
       finally { setLoading(false) }
     }
 

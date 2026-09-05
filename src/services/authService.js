@@ -20,7 +20,7 @@ export const uploadImageToCloudinary = async (base64String) => {
     const response = await axios.post(CLOUDINARY_URL, formData);
     return response.data.secure_url;
   } catch (error) {
-    console.error("Cloudinary yükləmə xətası:", error);
+    console.log("Cloudinary yükləmə xətası:", error);
     return base64String; 
   }
 };

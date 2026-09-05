@@ -89,7 +89,7 @@ export const useAuthForm = () => {
         navigate("/profile");
       }
     } catch (error) {
-      console.error("Giriş zamanı xəta:", error);
+      console.log("Giriş zamanı xəta:", error);
       setErrors({ email: "Serverlə əlaqə qopdu, zəhmət olmasa yenidən cəhd edin." });
     }
   };

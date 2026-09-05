@@ -17,7 +17,7 @@ export function useAuthLogic() {
     updateUserApi(user.id, { lastLogin: now })
       .then(res => setUser(res.data))
       .catch(err => {
-        console.error("Son giriş xətası:", err);
+        console.log("Son giriş xətası:", err);
         setUser(prev => ({ ...prev, lastLogin: now }));
       });
   }, []);
@@ -50,7 +50,7 @@ export function useAuthLogic() {
       setUser(res.data);
       setIsLoggedIn(true);
     } catch (error) {
-      console.error("Giriş xətası:", error);
+      console.log("Giriş xətası:", error);
       setUser({ ...userData, lastLogin: new Date().toISOString(), isGuest: false });
       setIsLoggedIn(true);
     }
@@ -66,7 +66,7 @@ export function useAuthLogic() {
         setUser(prev => (prev ? { ...prev, ...processedData } : null));
       }
     } catch (error) {
-      console.error("Profil yenilənmə xətası:", error);
+      console.log("Profil yenilənmə xətası:", error);
       setUser(prev => (prev ? { ...prev, ...updatedData } : null));
     }
   };
